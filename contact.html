@@ -64,54 +64,72 @@
                                     <input type="text" placeholder="Last Name" name="lastname">
                                 </div>
                             </div>
-                            <input type="select" placeholder="Email" name="mail">
+                            <input type="email" placeholder="Email" name="mail">
                             <select>
                                 <option value="0" selected>Gender</option>
                                 <option value="1">Male</option>
-                                <option value="0">Female</option>
-                                <option value="0">Other</option>
+                                <option value="2">Female</option>
+                                <option value="3">Other</option>
                             </select>
                             <input type="text" placeholder="Age" name="age">
-                            <div class="row">
-                                <div class="col">
-                                    <input type="text" placeholder="Weight in Kg" name="weight">
-                                </div>
-                                <div class="col">
-                                    <input type="text" placeholder="Hight in Cm" name="height">
-                                </div>
-                            </div>
                             <input type="text" placeholder="Phone number" name="tel">
                             <textarea placeholder="Add here any other infos"></textarea>
                         </div>
                         <div class="col-lg">
                             <h2 class="m-5 text-center">TELL US ABOUT YOUR GOAL</h2>
 
-                          <div class="row">
-                                <div class="col">
-                                    <input type="text" placeholder="Name" name="name">
-                                </div>
-                                <div class="col">
-                                    <input type="text" placeholder="Last Name" name="lastname">
-                                </div>
-                            </div>
-                            <input type="select" placeholder="Email" name="mail">
-                            <select>
-                                <option value="0" selected>Gender</option>
-                                <option value="1">Male</option>
-                                <option value="0">Female</option>
-                                <option value="0">Other</option>
+                            <select id="goal" onblur="getGoal()">
+                                <option value="0" selected>Choose your goal</option>
+                                <option value="1">Lose wheight</option>
+                                <option value="2">Gain weight</option>
                             </select>
-                            <input type="text" placeholder="Age" name="age">
-                            <div class="row">
-                                <div class="col">
-                                    <input type="text" placeholder="Weight in Kg" name="weight">
+                            <div id="choice_1" style="display: none;">
+                                <div class="row">
+                                    <div class="col">
+                                        <input type="text" placeholder="Current wheight (Kg)" name="C_weight">
+                                    </div>
+                                    <div class="col">
+                                        <input type="text" placeholder="Goal wheight (Kg)" name="G_weight">
+                                    </div>
                                 </div>
-                                <div class="col">
-                                    <input type="text" placeholder="Hight in Cm" name="height">
-                                </div>
+                                <input type="text" placeholder="Hight (Cm)" name="height">
+                                <select>
+                                    <option value="0" selected>Prefered diet</option>
+                                    <option value="1">Vegan diet</option>
+                                    <option value="2">Intermittent Fasting</option>
+                                    <option value="3">Keto diet</option>
+                                    <option value="4">Mediterranean diet</option>
+                                    <option value="5">Other</option>
+                                </select>
+                                <input type="text" placeholder="Allergies" id="allergies">
+                                <input type="button" value="Add another allergie" onclick="addAllergie(this)">
+                                
+                                <textarea placeholder="Add here any other infos"></textarea>
                             </div>
-                            <input type="text" placeholder="Phone number" name="tel">
-                            <textarea placeholder="Add here any other infos"></textarea>
+                            <div id="choice_2" style="display: none;">
+                                <div class="row">
+                                    <div class="col">
+                                        <input type="text" placeholder="Current wheight (Kg)" name="C_weight">
+                                    </div>
+                                    <div class="col">
+                                        <input type="text" placeholder="Goal wheight (Kg)" name="G_weight">
+                                    </div>
+                                </div>
+                                <input type="text" placeholder="Hight (Cm)" name="height">
+                                <select>
+                                    <option value="0" selected>Prefered diet</option>
+                                    <option value="1">Vegan diet</option>
+                                    <option value="2">Paleo diet</option>
+                                    <option value="3">Dukan diet</option>
+                                    <option value="4">Ultra-Low-Fat diet</option>
+                                    <option value="5">Other</option>
+                                </select>
+                                <input type="text" placeholder="Allergies" id="allergies">
+                                <input type="button" value="Add another allergie" onclick="addAllergie(this)">
+                                
+                            </div>
+
+
                         </div>
                     </div>
                     <div class="col" style="padding: 0;">
@@ -121,6 +139,7 @@
             </div>
         </div>
     </section>
+
 
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
