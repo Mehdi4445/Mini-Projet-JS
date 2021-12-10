@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
 </head>
+
 <body>
     <div id="preloder">
         <div class="loader"></div>
@@ -56,11 +57,9 @@
                             <div class="row" onfocus="valid()">
                                 <div class="col" id="div1">
                                     <input type="text" placeholder="Name" id="name">
-                                        <p id="p1"></p>       
                                 </div>
                                 <div class="col" id="div1">
                                     <input type="text" placeholder="Last Name" id="lastname">
-                                    <p id="p1"></p>
                                 </div>
                             </div>
                             <input type="email" placeholder="Email" name="mail">
@@ -71,23 +70,19 @@
                                 <option value="3">Other</option>
                             </select>
                             <div id="div2">
-                            <input type="text" placeholder="Age" id="age" onblur="validAge()">
-                            <p id="p1"></p>
+                                <input type="text" placeholder="Age" id="age" onblur="validAge()">
                             </div>
                             <div id="div3">
-                            <input type="text" placeholder="Phone number" id="tel" onblur="validNum()">
-                            <p id="p1"></p>
+                                <input type="text" placeholder="Phone number" id="tel" onblur="validNum()">
                             </div>
                             <div id="div4">
-                            <input type="text" placeholder="Hight (Cm)" id="height" onblur="validHig()">
-                            <p id="p1"></p>
+                                <input type="text" placeholder="Hight (Cm)" id="height" onblur="validHig(), aff()">
                             </div>
                             <textarea placeholder="Add here any other infos"></textarea>
                         </div>
-                        <div class="col-lg">
+                        <div class="col-lg d-none" id="second_form">
                             <h2 class="m-5 text-center">TELL US ABOUT YOUR GOAL</h2>
-
-                            <select id="goal" onblur="getGoal()">
+                            <select id="goal" onchange="getGoal()">
                                 <option value="0" selected>Choose your goal</option>
                                 <option value="1">Lose wheight</option>
                                 <option value="2">Gain weight</option>
@@ -95,13 +90,19 @@
                             <div id="choice_1" style="display: none;">
                                 <div class="row">
                                     <div class="col">
-                                        <input type="text" placeholder="Current wheight (Kg)" name="C_weight">
+                                        <div id="div5">
+                                            <input type="text" placeholder="Current wheight (Kg)" onblur="validCW()"
+                                                id="Cweight">
+                                        </div>
                                     </div>
                                     <div class="col">
-                                        <input type="text" placeholder="Goal wheight (Kg)" name="G_weight">
+                                        <div id="div6">
+                                            <input type="text" placeholder="Goal wheight (Kg)" onblur="validGW()"
+                                                id="Gweight">
+                                        </div>
                                     </div>
                                 </div>
-                                <select>
+                                <select required>
                                     <option value="0" selected>Prefered diet</option>
                                     <option value="1">Vegan diet</option>
                                     <option value="2">Intermittent Fasting</option>
@@ -111,15 +112,22 @@
                                 </select>
                                 <div class="row">
                                     <div class="col">
-                                        <input type="text" placeholder="Goal per month" name="G_Per_Month">
+                                        <div id="div7">
+                                            <input type="text" placeholder="Goal per month" onblur="validGPM()"
+                                                id="GPerMonth">
+                                        </div>
                                     </div>
                                     <div class="col">
-                                        <input type="text" placeholder="Calories per day" name="calories">
+                                        <div id="div8">
+                                            <input type="text" placeholder="Calories per day" onblur="validCPM()"
+                                                id="CPerMonth">
+                                        </div>
                                     </div>
                                 </div>
+
                                 <input type="text" placeholder="Allergies" id="allergies">
-                                <input type="button" value="Add another allergie" onclick="addAllergie(this)">
-                                
+                                <input type="button" value="Add another allergie" onclick="addAllergie(this)" id="allerBut">
+
                                 <textarea placeholder="Add here any injury history"></textarea>
                             </div>
                             <div id="choice_2" style="display: none;">
@@ -131,7 +139,7 @@
                                         <input type="text" placeholder="Goal wheight (Kg)" name="G_weight">
                                     </div>
                                 </div>
-                                
+
                                 <select>
                                     <option value="0" selected>Prefered diet</option>
                                     <option value="1">Vegan diet</option>
@@ -143,14 +151,14 @@
                                 <input type="text" placeholder="Allergies" id="allergies">
                                 <input type="button" value="Add another allergie" onclick="addAllergie(this)">
                                 <textarea placeholder="Add here any injury history"></textarea>
-                                
+
                             </div>
 
 
                         </div>
                     </div>
                     <div class="col" style="padding: 0;">
-                        <input type="button" >
+                        <input type="button">
                     </div>
                 </form>
             </div>

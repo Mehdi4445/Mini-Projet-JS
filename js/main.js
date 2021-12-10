@@ -46,68 +46,149 @@ function getGoal() {
     }
 }
 
-function addAllergie(where) {
-    var main = document.getElementById("allergies");
-    var cntr = (main.datacntr || 0) + 1;
-    main.datacntr = cntr;
+var count = 0;
 
-    var clone = main.cloneNode(true);
-    clone.id = "section" + cntr;
-    where.parentNode.insertBefore(clone, where);
+function addAllergie(where) {
+    if (count < 2) {
+        count++;
+        console.log(count);
+        var main = document.getElementById("allergies");
+        var cntr = (main.datacntr || 0) + 1;
+        main.datacntr = cntr;
+
+        var clone = main.cloneNode(true);
+        clone.id = "section" + cntr;
+        where.parentNode.insertBefore(clone, where);
+
+    } else if (count >= 2) {
+        document.getElementById("allerBut").disabled = true;
+        document.getElementById("allerBut").value = "Max allergies are 3 !";
+
+
+    }
 }
 
-function valid()
-{
-      var letters = /^[A-Za-z]+$/;
+function aff() {
+    document.getElementById("second_form").classList.remove("d-none");
+}
 
-      if(document.getElementById("name").value.match(letters) || document.getElementById("lastname").value.match(letters))
-      {
-      return true;
-      }
-      else
-      {
+function valid() {
+    var letters = /^[A-Za-z]+$/;
+
+    if (document.getElementById("name").value.match(letters) || document.getElementById("lastname").value.match(letters)) {
+        return true;
+    }
+    else {
         const para = document.createElement("p");
         const node = document.createTextNode("Name ans last name must have letters only");
         para.appendChild(node);
         const element = document.getElementById("div1");
         element.appendChild(para);
         return false;
-      
-      }
-    }
 
-    function validAge (){
-        
-        if (document.getElementById("age").value <=17 ){
+    }
+}
+
+function validAge() {
+
+    if (document.getElementById("age").value <= 17) {
         const para = document.createElement("p");
         const node = document.createTextNode("This gym is only for 18+");
         para.appendChild(node);
         const element = document.getElementById("div2");
         element.appendChild(para);
         return false;
-    
-           }
-    }
 
-    function validNum(){
-        var numbers = [0-9];
-        if( isNaN(document.getElementById("tel").value) || document.getElementById("tel").value.length < 8){
+    }
+}
+
+function validNum() {
+    if (isNaN(document.getElementById("tel").value) || document.getElementById("tel").value.length < 8) {
         const para = document.createElement("p");
         const node = document.createTextNode("Please provide a valide phone number");
         para.appendChild(node);
         const element = document.getElementById("div3");
         element.appendChild(para);
         return false;
-        }
     }
+}
 
-    function validHig(){
-        if (document.getElementById("height").value.length != 3 || document.getElementById("height").value < 100 || document.getElementById("height").value > 200){
-            const para = document.createElement("p");
-            const node = document.createTextNode("Please provide a valide hight");
-            para.appendChild(node);
-            const element = document.getElementById("div4");
-            element.appendChild(para);
-            return false;
-        }
+function validHig() {
+    if (document.getElementById("height").value.length != 3 || document.getElementById("height").value < 100 || document.getElementById("height").value > 200) {
+        const para = document.createElement("p");
+        const node = document.createTextNode("Please provide a valide hight");
+        para.appendChild(node);
+        const element = document.getElementById("div4");
+        element.appendChild(para);
+        return false;
     }
+}
+
+function validCW() {
+
+    if (isNaN(document.getElementById("Cweight").value) || document.getElementById("Cweight").value <= 0) {
+        const para = document.createElement("p");
+        const node = document.createTextNode("Please provide a valide weight");
+        para.appendChild(node);
+        const element = document.getElementById("div5");
+        element.appendChild(para);
+        return false;
+    }
+}
+
+function validGW() {
+
+    if (isNaN(document.getElementById("Gweight").value)) {
+        const para = document.createElement("p");
+        const node = document.createTextNode("Please provide a valide goal");
+        para.appendChild(node);
+        const element = document.getElementById("div6");
+        element.appendChild(para);
+        return false;
+    } else if (document.getElementById("Gweight").value > document.getElementById("Cweight").value) {
+        const para = document.createElement("p");
+        const node = document.createTextNode("Please provide a goal lower then your current weight");
+        para.appendChild(node);
+        const element = document.getElementById("div6");
+        element.appendChild(para);
+        return false;
+    }
+}
+
+function validGPM() {
+
+    if (isNaN(document.getElementById("GPerMonth").value)) {
+        const para = document.createElement("p");
+        const node = document.createTextNode("Please provide a valide Goal per month");
+        para.appendChild(node);
+        const element = document.getElementById("div7");
+        element.appendChild(para);
+        return false;
+    } else if (document.getElementById("GPerMonth").value > 20 || document.getElementById("GPerMonth").value > document.getElementById("Gweight").value) {
+        const para = document.createElement("p");
+        const node = document.createTextNode("Please provide a valide Goal per month");
+        para.appendChild(node);
+        const element = document.getElementById("div7");
+        element.appendChild(para);
+        return false;
+    }
+}
+
+function validCPM() {
+
+    if (isNaN(document.getElementById("CPerMonth").value)) {
+        const para = document.createElement("p");
+        const node = document.createTextNode("Please provide a valide Calories per month");
+        para.appendChild(node);
+        const element = document.getElementById("div8");
+        element.appendChild(para);
+        return false;
+    } else if (document.getElementById("CPerMonth").value < 1999 || document.getElementById("CPerMonth").value > 2500) {
+        const para = document.createElement("p");
+        const node = document.createTextNode("Please provide between 2000 and 2500 kcal per day");
+        para.appendChild(node);
+        const element = document.getElementById("div8");
+        element.appendChild(para);
+        return false;
+    }
+}
