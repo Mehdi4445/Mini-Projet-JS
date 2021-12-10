@@ -133,14 +133,20 @@
                             <div id="choice_2" style="display: none;">
                                 <div class="row">
                                     <div class="col">
-                                        <input type="text" placeholder="Current wheight (Kg)" name="C_weight">
+                                        <div id="div9">
+                                            <input type="text" placeholder="Current wheight (Kg)" onblur="validCW2()"
+                                                id="Cweight2">
+                                        </div>
                                     </div>
                                     <div class="col">
-                                        <input type="text" placeholder="Goal wheight (Kg)" name="G_weight">
+                                        <div id="div10">
+                                            <input type="text" placeholder="Goal wheight (Kg)" onblur="validGW2()"
+                                                id="Gweight2">
+                                        </div>
                                     </div>
                                 </div>
 
-                                <select>
+                                <select required>
                                     <option value="0" selected>Prefered diet</option>
                                     <option value="1">Vegan diet</option>
                                     <option value="2">Paleo diet</option>
@@ -149,7 +155,7 @@
                                     <option value="5">Other</option>
                                 </select>
                                 <input type="text" placeholder="Allergies" id="allergies">
-                                <input type="button" value="Add another allergie" onclick="addAllergie(this)">
+                                <input type="button" value="Add another allergie" onclick="addAllergie(this)" id="allerBut">
                                 <textarea placeholder="Add here any injury history"></textarea>
 
                             </div>
@@ -158,7 +164,7 @@
                         </div>
                     </div>
                     <div class="col" style="padding: 0;">
-                        <input type="button">
+                        <button type="submit"> SUBMIT ! </button>
                     </div>
                 </form>
             </div>

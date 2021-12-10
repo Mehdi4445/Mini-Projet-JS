@@ -192,3 +192,34 @@ function validCPM() {
         return false;
     }
 }
+
+function validCW2() {
+
+    if (isNaN(document.getElementById("Cweight2").value) || document.getElementById("Cweight2").value <= 0) {
+        const para = document.createElement("p");
+        const node = document.createTextNode("Please provide a valide weight");
+        para.appendChild(node);
+        const element = document.getElementById("div9");
+        element.appendChild(para);
+        return false;
+    }
+}
+
+function validGW2() {
+
+    if (isNaN(document.getElementById("Gweight2").value)) {
+        const para = document.createElement("p");
+        const node = document.createTextNode("Please provide a valide goal");
+        para.appendChild(node);
+        const element = document.getElementById("div10");
+        element.appendChild(para);
+        return false;
+    } else if (document.getElementById("Gweight2").value < document.getElementById("Cweight2").value) {
+        const para = document.createElement("p");
+        const node = document.createTextNode("Please provide a goal higher then your current weight");
+        para.appendChild(node);
+        const element = document.getElementById("div10");
+        element.appendChild(para);
+        return false;
+    }
+}
