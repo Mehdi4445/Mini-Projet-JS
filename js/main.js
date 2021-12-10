@@ -55,3 +55,59 @@ function addAllergie(where) {
     clone.id = "section" + cntr;
     where.parentNode.insertBefore(clone, where);
 }
+
+function valid()
+{
+      var letters = /^[A-Za-z]+$/;
+
+      if(document.getElementById("name").value.match(letters) || document.getElementById("lastname").value.match(letters))
+      {
+      return true;
+      }
+      else
+      {
+        const para = document.createElement("p");
+        const node = document.createTextNode("Name ans last name must have letters only");
+        para.appendChild(node);
+        const element = document.getElementById("div1");
+        element.appendChild(para);
+        return false;
+      
+      }
+    }
+
+    function validAge (){
+        
+        if (document.getElementById("age").value <=17 ){
+        const para = document.createElement("p");
+        const node = document.createTextNode("This gym is only for 18+");
+        para.appendChild(node);
+        const element = document.getElementById("div2");
+        element.appendChild(para);
+        return false;
+    
+           }
+    }
+
+    function validNum(){
+        var numbers = [0-9];
+        if( isNaN(document.getElementById("tel").value) || document.getElementById("tel").value.length < 8){
+        const para = document.createElement("p");
+        const node = document.createTextNode("Please provide a valide phone number");
+        para.appendChild(node);
+        const element = document.getElementById("div3");
+        element.appendChild(para);
+        return false;
+        }
+    }
+
+    function validHig(){
+        if (document.getElementById("height").value.length != 3 || document.getElementById("height").value < 100 || document.getElementById("height").value > 200){
+            const para = document.createElement("p");
+            const node = document.createTextNode("Please provide a valide hight");
+            para.appendChild(node);
+            const element = document.getElementById("div4");
+            element.appendChild(para);
+            return false;
+        }
+    }
