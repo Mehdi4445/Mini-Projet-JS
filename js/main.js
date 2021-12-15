@@ -76,6 +76,7 @@ function valid() {
     var letters = /^[A-Za-z]+$/;
 
     if (document.getElementById("name").value.match(letters) || document.getElementById("lastname").value.match(letters)) {
+        console.log("asba");
         return true;
     }
     else {
@@ -99,6 +100,13 @@ function validAge() {
         element.appendChild(para);
         return false;
 
+    } else if (document.getElementById("age").value.length >= 3){
+        const para = document.createElement("p");
+        const node = document.createTextNode("Please enter a valid age");
+        para.appendChild(node);
+        const element = document.getElementById("div2");
+        element.appendChild(para);
+        return false;
     }
 }
 
